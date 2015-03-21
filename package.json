@@ -1,0 +1,38 @@
+{
+  "name": "react-fullcalendar",
+  "version": "0.0.0",
+  "description": "A calendar/scheduler in React highly influenced by fullcalendar jQuery plugin",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/maur8ino/react-fullcalendar.git"
+  },
+  "keywords": [
+    "react",
+    "reactjs",
+    "calendar",
+    "schedule"
+  ],
+  "author": "Mauro Verrocchio <mauroverrocchio@gmail.com> (https://github.com/maur8ino)",
+  "license": "GNU",
+  "bugs": {
+    "url": "https://github.com/maur8ino/react-fullcalendar/issues"
+  },
+  "homepage": "https://github.com/maur8ino/react-fullcalendar",
+  "devDependencies": {
+    "babel-core": "^4.7.16",
+    "babel-loader": "^4.2.0",
+    "react-hot-loader": "^1.2.3",
+    "webpack": "^1.7.3",
+    "webpack-dev-server": "^1.7.0"
+  },
+  "dependencies": {
+    "moment": "^2.9.0",
+    "moment-timezone": "^0.3.1",
+    "react": "^0.13.1"
+  }
+}
