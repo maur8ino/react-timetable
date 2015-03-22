@@ -24,5 +24,6 @@ describe('TimeSlot', function() {
     // Verify that to has the right fromat
     var toDiv = TestUtils.findRenderedDOMComponentWithClass(timeslot, 'to');
     expect(toDiv.getDOMNode().textContent).toEqual(to);
+
   });
 });
