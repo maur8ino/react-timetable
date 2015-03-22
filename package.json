@@ -1,7 +1,7 @@
 {
-  "name": "react-fullcalendar",
-  "version": "0.0.0",
-  "description": "A calendar/scheduler in React highly influenced by fullcalendar jQuery plugin",
+  "name": "react-timetable",
+  "version": "0.0.1",
+  "description": "A calendar/scheduler/timetable in React highly influenced by fullcalendar jQuery plugin",
   "main": "src/main.js",
   "scripts": {
     "start": "node server.js",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/maur8ino/react-fullcalendar.git"
+    "url": "https://github.com/maur8ino/react-timetable.git"
   },
   "keywords": [
     "react",
@@ -20,9 +20,9 @@
   "author": "Mauro Verrocchio <mauroverrocchio@gmail.com> (https://github.com/maur8ino)",
   "license": "GNU",
   "bugs": {
-    "url": "https://github.com/maur8ino/react-fullcalendar/issues"
+    "url": "https://github.com/maur8ino/react-timetable/issues"
   },
-  "homepage": "https://github.com/maur8ino/react-fullcalendar",
+  "homepage": "https://github.com/maur8ino/react-timetable",
   "devDependencies": {
     "babel-core": "^4.7.16",
     "babel-loader": "^4.2.0",

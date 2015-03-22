@@ -1,4 +1,4 @@
 var React = require('react');
-var DaySelector = require('../src/main').DaySelector;
+var DayViewSelector = require('../src/main').DayViewSelector;
 
-React.render(<DaySelector/>, document.getElementById('root'));
+React.render(<DayViewSelector/>, document.getElementById('root'));

@@ -3,7 +3,7 @@ var moment = require('moment');
 
 var TimeSlot = require('./TimeSlot');
 
-var Day = React.createClass({
+var DayView = React.createClass({
   propTypes: {
     numberOfSlots: function(props) {
       if (props.numberOfSlots !== undefined && props.slotDuration !== undefined) {
@@ -44,4 +44,4 @@ var Day = React.createClass({
   }
 });
 
-module.exports = Day;
+module.exports = DayView;

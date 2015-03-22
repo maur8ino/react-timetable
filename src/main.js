@@ -1,5 +1,5 @@
 module.exports = {
-  DaySelector: require('./components/DaySelector'),
-  Day: require('./components/Day'),
+  DayViewSelector: require('./components/DayViewSelector'),
+  DayView: require('./components/DayView'),
   TimeSlot: require('./components/TimeSlot')
 };
