@@ -6,14 +6,22 @@ var DayView = require('./DayView');
 var DayViewSelector = React.createClass({
   getDefaultProps: function() {
     return {
-      initialDay: moment().startOf('day')
+      selectedDay: moment().startOf('day')
     };
   },
 
   getInitialState: function() {
     return {
-      selectedDay: this.props.initialDay
+      selectedDay: moment(this.props.selectedDay)
     };
+  },
+
+  componentWillReceiveProps: function(nextProps) {
+    if (nextProps.selectedDay !== undefined) {
+      this.setState({
+        selectedDay: moment(nextProps.selectedDay)
+      });
+    }
   },
 
   goToDay: function(days) {
@@ -27,7 +35,7 @@ var DayViewSelector = React.createClass({
   },
 
   render: function() {
-    var day = moment(this.state.selectedDay);
+    var day = this.state.selectedDay;
 
     return (
       <div>
