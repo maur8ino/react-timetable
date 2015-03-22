@@ -4,4 +4,4 @@
 
 ### What it is? ###
 
-A calendar/scheduler/timetable widget written in React highly influenced by fullcalendar jQuery plugin
+A calendar/scheduler/timetable widget written in React highly influenced by fullcalendar jQuery plugin.
