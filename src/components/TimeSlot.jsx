@@ -5,7 +5,8 @@ var TimeSlot = React.createClass({
   getDefaultProps: function() {
     return {
       startTime: moment(),
-      duration: moment.duration(30, 'minutes')
+      duration: moment.duration(30, 'minutes'),
+      format: moment.defaultFormat
     };
   },
 
@@ -14,9 +15,9 @@ var TimeSlot = React.createClass({
         to = this.props.startTime.add(this.props.duration).format();
 
     return (
-      <div style={{'height': '40'}}>
-        <div>From: {from}</div>
-        <div>To: {to}</div>
+      <div className="time-slot" style={{'height': '40'}}>
+        <div className="from">From: {from}</div>
+        <div className="to">To: {to}</div>
       </div>
     );
   }
