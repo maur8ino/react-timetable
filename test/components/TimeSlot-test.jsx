@@ -1,11 +1,10 @@
-jest.dontMock('../TimeSlot.jsx');
+var React = require('react/addons');
+var moment = require('moment');
+var TimeSlot = require('../../src/components/TimeSlot.jsx');
+var TestUtils = React.addons.TestUtils;
+var expect = require('chai').expect;
 
 describe('TimeSlot', function() {
-  var React = require('react/addons');
-  var moment = require('moment');
-  var TimeSlot = require('../TimeSlot.jsx');
-  var TestUtils = React.addons.TestUtils;
-
   it('should print from and to', function() {
     var now = moment(),
         duration = moment.duration(15, 'minutes'),
@@ -13,17 +12,15 @@ describe('TimeSlot', function() {
         to = 'To: ' + moment(now).add(duration).format(moment.defaultFormat);
 
     // Render a timeslot in the document
-    var timeslot = TestUtils.renderIntoDocument(
-      <TimeSlot startTime={now} duration={duration} />
-    );
+    var timeslot = React.render(<TimeSlot startTime={now} duration={duration} />, document.body);
 
     // Verify that from has the right fromat
     var fromDiv = TestUtils.findRenderedDOMComponentWithClass(timeslot, 'from');
-    expect(fromDiv.getDOMNode().textContent).toEqual(from);
+    expect(fromDiv.getDOMNode().textContent).to.equal(from);
 
     // Verify that to has the right fromat
     var toDiv = TestUtils.findRenderedDOMComponentWithClass(timeslot, 'to');
-    expect(toDiv.getDOMNode().textContent).toEqual(to);
+    expect(toDiv.getDOMNode().textContent).to.equal(to);
 
   });
 });
