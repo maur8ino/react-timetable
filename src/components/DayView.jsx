@@ -1,7 +1,7 @@
-var React = require('react/react');
-var moment = require('moment');
+import React from 'react';
+import moment from 'moment';
 
-var TimeSlot = require('./TimeSlot');
+import TimeSlot from './TimeSlot';
 
 var DayView = React.createClass({
   propTypes: {

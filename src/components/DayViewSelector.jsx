@@ -1,7 +1,5 @@
-var React = require('react/react');
-var moment = require('moment');
-
-var DayView = require('./DayView');
+import React from 'react';
+import moment from 'moment';
 
 var DayViewSelector = React.createClass({
   getDefaultProps: function() {
@@ -39,10 +37,9 @@ var DayViewSelector = React.createClass({
 
     return (
       <div>
-      Day: {day.format()}
-      <a href="#" onClick={this.goToDay(-1)}>-</a>
-      <a href="#" onClick={this.goToDay(+1)}>+</a>
-      <DayView day={day}/>
+        Day: {day.format()}
+        <a href="#" onClick={this.goToDay(-1)}>-</a>
+        <a href="#" onClick={this.goToDay(+1)}>+</a>
       </div>
     );
   }

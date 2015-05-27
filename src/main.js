@@ -1,5 +1,3 @@
-module.exports = {
-  DayViewSelector: require('./components/DayViewSelector'),
-  DayView: require('./components/DayView'),
-  TimeSlot: require('./components/TimeSlot')
-};
+export { default as DayViewSelector } from './components/DayViewSelector';
+export { default as DayView } from './components/DayView';
+export { default as TimeSlot } from './components/TimeSlot';

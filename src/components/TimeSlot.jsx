@@ -1,5 +1,5 @@
-var React = require('react/react');
-var moment = require('moment');
+import React from 'react';
+import moment from 'moment';
 
 var TimeSlot = React.createClass({
   getDefaultProps: function() {
