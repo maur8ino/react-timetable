@@ -1,26 +1,34 @@
-var React = require('react/addons');
-var moment = require('moment');
-var TimeSlot = require('../../src/components/TimeSlot.jsx');
-var TestUtils = React.addons.TestUtils;
-var expect = require('chai').expect;
+import React from 'react/addons';
+import { expect } from 'chai';
+import moment from 'moment';
 
-describe('TimeSlot', function() {
-  it('should print from and to', function() {
-    var now = moment(),
-        duration = moment.duration(15, 'minutes'),
-        from = 'From: '+ now.format(moment.defaultFormat),
-        to = 'To: ' + moment(now).add(duration).format(moment.defaultFormat);
+import TimeSlot from '../../src/components/TimeSlot.jsx';
 
-    // Render a timeslot in the document
-    var timeslot = React.render(<TimeSlot startTime={now} duration={duration} />, document.body);
+let { TestUtils } = React.addons;
 
-    // Verify that from has the right fromat
-    var fromDiv = TestUtils.findRenderedDOMComponentWithClass(timeslot, 'from');
-    expect(fromDiv.getDOMNode().textContent).to.equal(from);
+describe('TimeSlot', () => {
+  let shallowRenderer = TestUtils.createRenderer();
 
-    // Verify that to has the right fromat
-    var toDiv = TestUtils.findRenderedDOMComponentWithClass(timeslot, 'to');
-    expect(toDiv.getDOMNode().textContent).to.equal(to);
+  describe('rendered with \'from\' and \'to\'', () => {
+    let now = moment();
+    let duration = moment.duration(15, 'minutes');
+    let from = 'From: '+ now.format(moment.defaultFormat);
+    let to = 'To: ' + moment(now).add(duration).format(moment.defaultFormat);
 
-  });
+    // Render a timeslot using shallowRenderer
+    shallowRenderer.render(<TimeSlot startTime={now} duration={duration} />);
+    let timeslot = shallowRenderer.getRenderOutput();
+
+    it('should rendered in a div', () => {
+      expect(timeslot.type).to.equal('div');
+    });
+
+    it('should have the right text in \'from\'', () => {
+      expect(timeslot.props.children[0].props.children.join('')).to.equal(from);
+    });
+
+    it('should have the right text in \'to\'', () => {
+      expect(timeslot.props.children[1].props.children.join('')).to.equal(to);
+    });
+});
 });

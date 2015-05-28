@@ -20,10 +20,6 @@ module.exports = {
     extensions: ['', '.js', '.jsx']
   },
   module: {
-    loaders: [{
-      test: /\.jsx?$/,
-      loaders: ['react-hot', 'babel'],
-      exclude: /node_modules/
-    }]
+    loaders: [{ test: /\.jsx?$/, loaders: ['react-hot', 'babel-loader'], exclude: /node_modules/ }]
   }
 };
