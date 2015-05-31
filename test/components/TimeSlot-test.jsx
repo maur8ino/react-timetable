@@ -30,5 +30,5 @@ describe('TimeSlot', () => {
     it('should have the right text in \'to\'', () => {
       expect(timeslot.props.children[1].props.children.join('')).to.equal(to);
     });
-});
+  });
 });
