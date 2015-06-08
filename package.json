@@ -18,7 +18,7 @@
     "schedule"
   ],
   "author": "Mauro Verrocchio <mauroverrocchio@gmail.com> (https://github.com/maur8ino)",
-  "license": "GNU",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/maur8ino/react-timetable/issues"
   },
