@@ -1,13 +1,12 @@
-import React from 'react/addons';
+import React from 'react';
+import { createRenderer } from 'react-addons-test-utils';
 import { expect } from 'chai';
 import moment from 'moment';
 
 import TimeSlot from '../../src/components/TimeSlot.jsx';
 
-let { TestUtils } = React.addons;
-
 describe('TimeSlot', () => {
-  let shallowRenderer = TestUtils.createRenderer();
+  let shallowRenderer = createRenderer();
 
   describe('rendered with \'from\' and \'to\'', () => {
     let now = moment();
