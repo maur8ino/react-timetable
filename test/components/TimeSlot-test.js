@@ -14,7 +14,7 @@ const to = 'To: ' + moment(now).add(duration).format(moment.defaultFormat);
 renderer.render(<TimeSlot startTime={now} duration={duration} />);
 const timeslot = renderer.getRenderOutput();
 
-test('<TimeSlot> should rendered in a div', (t) => {
+test('<TimeSlot> should be rendered in a div', (t) => {
   t.is(timeslot.type, 'div');
 });
 
