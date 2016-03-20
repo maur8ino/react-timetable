@@ -6,7 +6,7 @@ import moment from 'moment';
 import TimeSlot from '../../src/components/TimeSlot.jsx';
 
 describe('TimeSlot', () => {
-  let shallowRenderer = createRenderer();
+  const renderer = createRenderer();
 
   describe('rendered with \'from\' and \'to\'', () => {
     let now = moment();
@@ -14,9 +14,9 @@ describe('TimeSlot', () => {
     let from = 'From: '+ now.format(moment.defaultFormat);
     let to = 'To: ' + moment(now).add(duration).format(moment.defaultFormat);
 
-    // Render a timeslot using shallowRenderer
-    shallowRenderer.render(<TimeSlot startTime={now} duration={duration} />);
-    let timeslot = shallowRenderer.getRenderOutput();
+    // Render a timeslot using shallow renderer
+    renderer.render(<TimeSlot startTime={now} duration={duration} />);
+    let timeslot = renderer.getRenderOutput();
 
     it('should rendered in a div', () => {
       expect(timeslot.type).to.equal('div');
