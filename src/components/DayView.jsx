@@ -3,45 +3,23 @@ import moment from 'moment';
 
 import TimeSlot from './TimeSlot';
 
-var DayView = React.createClass({
-  propTypes: {
-    numberOfSlots: function(props) {
-      if (props.numberOfSlots !== undefined && props.slotDuration !== undefined) {
-        return new Error('You can specify only one of \'numberOfSlots\' or \'slotDuration\'');
-      }
-    },
-    slotDuration: function(props) {
-      if (props.numberOfSlots !== undefined && props.slotDuration !== undefined) {
-        return new Error('You can specify only one of \'numberOfSlots\' or \'slotDuration\'');
-      }
-    }
-  },
+const DayView = ({
+  day = moment().startOf('day'),
+  slotDuration = moment.duration(15, 'minutes'),
+  slotTimeFormat = moment.defaultFormat
+}) => {
+  let timeslots = Array.apply(null, {
+    length: Math.ceil(moment.duration(1, 'day') / slotDuration)
+  }).map((_, i) => {
+    let startTime = day.clone().add(i * slotDuration);
+    return <TimeSlot key={i} startTime={startTime} duration={slotDuration} format={slotTimeFormat}/>;
+  });
 
-  getDefaultProps: function() {
-    return {
-      day: moment().startOf('day'),
-      numberOfSlots: 48
-    };
-  },
+  return timeslots && timeslots.length && (
+    <div className="rtt-day-view">
+      {timeslots}
+    </div>
+  );
+};
 
-  render: function() {
-    var day = moment(this.props.day),
-        numberOfSlots = this.props.numberOfSlots,
-        slotDuration = moment.duration(moment.duration(1, 'day') / numberOfSlots),
-        elements = [];
-
-    for (var i = 0; i < numberOfSlots; i++) {
-      var startTime = moment(day);
-      startTime.add(i * slotDuration);
-      elements.push(<TimeSlot key={i} startTime={startTime} duration={slotDuration}/>);
-    }
-
-    return (
-      <div>
-        {elements}
-      </div>
-    );
-  }
-});
-
-module.exports = DayView;
+export default DayView;

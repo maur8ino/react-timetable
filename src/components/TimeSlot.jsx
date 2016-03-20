@@ -1,26 +1,20 @@
 import React from 'react';
 import moment from 'moment';
 
-var TimeSlot = React.createClass({
-  getDefaultProps: function() {
-    return {
-      startTime: moment(),
-      duration: moment.duration(30, 'minutes'),
-      format: moment.defaultFormat
-    };
-  },
+const TimeSlot = ({
+  startTime = moment(),
+  duration = moment.duration(15, 'minutes'),
+  format = moment.defaultFormat
+}) => {
+  let from = startTime.format();
+  let to = startTime.clone().add(duration).format();
 
-  render: function() {
-    var from = this.props.startTime.format(),
-        to = this.props.startTime.add(this.props.duration).format();
+  return (
+    <div className="rtt-time-slot" style={{'height': '40'}}>
+      <div className="rtt-time-slot-from">From: {from}</div>
+      <div className="rtt-time-slot-to">To: {to}</div>
+    </div>
+  );
+};
 
-    return (
-      <div className="time-slot" style={{'height': '40'}}>
-        <div className="from">From: {from}</div>
-        <div className="to">To: {to}</div>
-      </div>
-    );
-  }
-});
-
-module.exports = TimeSlot;
+export default TimeSlot;
